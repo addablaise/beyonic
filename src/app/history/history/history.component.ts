@@ -1,61 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import account from 'src/app/core/data/account';
 import transactions from 'src/app/core/data/transactions';
-import user from 'src/app/core/data/user';
-import { Account } from 'src/app/core/models/account';
-import { MenuItem } from 'src/app/core/models/menu-item';
 import { Transaction } from 'src/app/core/models/transaction';
-import { User } from 'src/app/core/models/user';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-history',
+  templateUrl: './history.component.html',
+  styleUrls: ['./history.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class HistoryComponent implements OnInit {
 
   constructor() { }
-  public slide: number = 0;
-  public user: User = user;
   public loadingState = true;
-
-  public account: Account = {
-    currency: "UGX",
-    balance: 0,
-    weekly: 0,
-    incoming: 0,
-    outgoing: 0,
-  };
-
-
   public transactions: Transaction[] = [];
-
-  public actions: MenuItem[] = [
-    {
-      name: "Top Up",
-      icon: "fa-regular fa-credit-card",
-      link: ""
-    },
-    {
-      name: "Send Money",
-      icon: "fa fa-arrow-up rotate-icon-45",
-      link: ""
-    },
-    {
-      name: "Collect",
-      icon: "fa fa-arrow-right rotate-icon-45",
-      link: ""
-    },
-    {
-      name: "Withdraw",
-      icon: "fa fa-download",
-      link: ""
-    }
-  ];
 
   ngOnInit(): void {
     setTimeout( () => {
-      this.account = account;
       this.transactions = transactions;
       this.loadingState = false;
     }, 1000);
@@ -110,11 +69,6 @@ export class DashboardComponent implements OnInit {
     }
 
     return name;
-  }
-
-  load() {
-    this.account = account;
-    this.transactions = transactions;
   }
 
 }

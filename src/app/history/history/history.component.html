@@ -1,0 +1,69 @@
+<div class="grid bg-gray-50 grid-cols-1 gap-4 p-4 md:p-16">
+    <div class="text-3xl font-medium text-gray-900">
+        Transactions
+    </div>
+
+    <div class="{{loadingState? 'animate-pulse':'mx-0'}} px-8 py-4 mt-8 bg-white rounded shadow-xs">
+        <div class="flex justify-between my-2">
+            <div class="text-left">
+                Transaction History
+            </div>
+        </div>
+        
+        <table *ngIf="transactions.length" class="my-4 py-4 table-auto w-full">
+            <tbody>
+                <tr *ngFor="let transaction of transactions" class="text-gray-700 border-b border-gray-200">
+                    <td class="py-2">
+                        <div class="{{ iconClass(transaction.status) }} avatar-icon w-12 h-12">
+                            <i class="{{ icon(transaction.type) }} text-gray-600"></i>
+                        </div>
+                    </td>
+                    <td>
+                        {{ transaction.name }}
+                        <span class="font-medium text-gray-900 block md:hidden">
+                            {{ transaction.currency }} 
+                            {{ transaction.amount | number: '1.2-2' }} 
+                        </span>
+                    </td>
+                    <td class="hidden md:table-cell font-medium text-gray-900">
+                        {{ transaction.currency }} 
+                        {{ transaction.amount | number: '1.2-2' }} 
+                    </td>
+                    <td class="hidden md:table-cell">
+                        {{ transaction.type.replace("-", " ") | titlecase }}
+                    </td>
+                    <td class="{{ class(transaction.status) }}">
+                        {{ transaction.status | titlecase }}
+                        <small class="{{ transaction.status == 'failed' ? 'inline' : 'hidden' }} cursor-pointer mx-2 text-beyonic-blue">
+                            <i class="fa fa-rotate-left"></i>
+                            Retry
+                        </small>
+                    </td>
+                    <td>{{ transaction.timestamp }}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div *ngIf="!transactions.length" class="my-4 w-full">
+            <div class="flex justify-between">
+                <div class="w-full justify-center inline-block text-center cursor-default pt-2 pb-1">
+                    <div class="inline-block mb-4">
+                        <img src="/assets/images/transactions.png">
+                    </div>
+                    <p class="block text-lg font-medium text-gray-800">
+                        No transactions yet
+                    </p>
+                    <p class="block text-md text-gray-600 my-4">
+                        After your first transaction, you will be able to view it here
+                    </p>
+                    <button class="text-white px-8 bg-beyonic-blue p-2 rounded-md shadow">
+                        Got it
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+</div>

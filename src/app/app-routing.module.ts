@@ -7,8 +7,16 @@ const routes: Routes = [
     loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
   },
   {
-      path: '**',
-      redirectTo: 'dashboard',
+    path: 'history',
+    loadChildren: () => import('./history/history.module').then(m => m.HistoryModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'dashboard',
   },
 ];
 

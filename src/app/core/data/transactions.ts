@@ -40,7 +40,15 @@ const transactions: Transaction[] = [
         amount: "5846",
         status: "failed",
         timestamp: "5 d"
-    }
+    },
+    {
+        type: "send-money",
+        name: "Blaise Adda",
+        currency: "UGX",
+        amount: "2980",
+        status: "completed",
+        timestamp: "6 d"
+    },
 ];
 
 export default transactions;
