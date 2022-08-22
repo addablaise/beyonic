@@ -9,7 +9,8 @@
                 Today
             </div>
             
-            <div class="grid gap-2 grid-cols-1 bg-gradient-to-r from-beyonic-blue-400 to-beyonic-blue-600 rounded shadow-xs p-4">
+            <div class="{{loadingState? 'animate-pulse':'mx-0'}}  grid gap-2 grid-cols-1 bg-gradient-to-r 
+            from-beyonic-blue-400 to-beyonic-blue-600 rounded shadow-xs p-4">
                 <div>
                     <div class="text-sm font-light">
                         Balance
@@ -112,7 +113,7 @@
         </div>
     </div>
     
-    <div class="px-8 py-4 mt-8 bg-white rounded shadow-xs">
+    <div class="{{loadingState? 'animate-pulse':'mx-0'}} px-8 py-4 mt-8 bg-white rounded shadow-xs">
         <div class="flex justify-between my-2">
             <div class="text-left">
                 Recent transactions

@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   constructor() { }
   public slide: number = 0;
   public user: User = user;
+  public loadingState = true;
 
   public account: Account = {
     currency: "UGX",
@@ -56,7 +57,8 @@ export class DashboardComponent implements OnInit {
     setTimeout( () => {
       this.account = account;
       this.transactions = transactions;
-    }, 3000);
+      this.loadingState = false;
+    }, 4000);
   }
 
   icon(type: any): String {
