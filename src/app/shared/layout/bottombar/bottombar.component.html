@@ -1,0 +1,10 @@
+<section class="block fixed inset-x-0 bottom-0 z-10 bg-white rounded-t-lg shadow">
+    <div class="flex justify-between">
+        <div (click)="navigate(item.link)" *ngFor="let item of menu" class="{{ routerLink == item.link ? 'text-beyonic-blue' : 'text-gray-500' }} w-full justify-center inline-block text-center pt-2 pb-1">
+            <i class="{{item.icon}} fa-xl inline-block mb-4"></i>
+            <span class="block text-xs">
+                {{ item.name }}
+            </span>
+        </div>
+    </div>
+</section>

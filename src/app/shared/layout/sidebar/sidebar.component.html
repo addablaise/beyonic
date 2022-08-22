@@ -1,0 +1,32 @@
+<div class="grid grid-cols-1 bg-gray-100 w-64 h-screen overflow-auto">
+    <div class="w-64 pt-4 absolute bg-gray-100">
+        <img src="/assets/images/beyonic.png" class="scale-75 top-0 h-16 px-4 mb-4">
+    </div>
+
+    <div class="my-24">
+        <div *ngFor="let item of menu">
+            <div class="text-xs uppercase px-4 my-4">
+                {{ item.group }}
+            </div>
+            <a (click)="navigate(child.link)" class="{{ routerLink == child.link ? 'active-menu-item' 
+            : 'menu-item hover:bg-white' }}" *ngFor="let child of item.children">
+                <i class="{{child.icon }} mr-4"></i>
+                {{ child.name }}
+            </a>
+        </div>
+    </div>
+
+    <div class="absolute bottom-0 w-64 bg-gray-200 p-4 flex justify-start items-center">
+        <div>
+            <div class="avatar-icon bg-beyonic-blue-600 w-12 h-12 mr-2">
+                <span class="font-medium text-2xl text-white">
+                    {{ initials(user.lastName + " " +user.firstName)}}
+                </span>
+            </div>
+        </div>
+        <div class="mx-4 text-lg text-gray-600">
+            {{ user.lastName + " " +user.firstName }}
+        </div>
+    </div>
+</div>
+
